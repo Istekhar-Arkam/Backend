@@ -14,4 +14,12 @@ app.use(express.json({ limit: "16kb" })); // excepting json
 app.use(express.urlencoded({ extended: true, limit: "16kb" })); // when data come from url so this line make express understand.
 app.use(express.static("public")); // public assests use to store pdf file or anything file to store.
 app.use(cookieParser());
+
+import userRouter from "./routes/user.routes.js";
+
+// app.use("/users",userRouter)
+// Creation of API
+
+app.use("/api/v1/users", userRouter);
+
 export { app };
